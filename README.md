@@ -18,17 +18,19 @@ Inside your folder, excute the command bellow.
 
 `npm install @openzeppelin/contracts`
 
-## Deploy in local
+## Local Testing
+
+### Deployment
 
 To test the token in local, you have to use the command line after :
 
 `truffle develop`
 
-And then execute this command in the prompt : 
+And then execute this command in the prompt :
 
 truffle(develop)> `migrate`
 
-## Local Testing
+### Testing
 
 To test that everything is good use these command lines in order :
 

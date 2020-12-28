@@ -4,6 +4,9 @@
 /build
 package-lock.json
 
+# Wallet secret
+.metamask_wallet_secret
+
 # IDEs and editors
 /.idea
 *.iml
