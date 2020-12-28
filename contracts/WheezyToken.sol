@@ -10,9 +10,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  */
 contract WheezyToken is ERC20, Ownable {
 
-    string constant TOKEN_NAME = "WheezyToken";
-    string constant TOKEN_SYMBOL = "WHZ";
-    uint constant TOKEN_INITIAL_SUPPLY  = 1000000 * 10 ** uint256(0);
+    string public constant TOKEN_NAME = "WheezyToken";
+    string public constant TOKEN_SYMBOL = "WHEEZY";
+    uint8 public constant TOKEN_DECIMALS = 18;
+    uint public constant TOKEN_INITIAL_SUPPLY  = 1000000 * (10 ** uint256(TOKEN_DECIMALS));
 
     /**
      * @dev Constructor that gives msg.sender all of existing tokens.
