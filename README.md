@@ -16,4 +16,5 @@ Create a folder for your project, go inside this folder et execute the command b
 
 Inside your folder, excute the command bellow.
 
-`npm install openzeppelin-solidity`
+`npm install @openzeppelin/contracts`
+
