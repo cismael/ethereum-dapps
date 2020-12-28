@@ -1,4 +1,4 @@
-const WheezyToken = artifacts.require("./WheezyToken.sol");
+const WheezyToken = artifacts.require("./contracts/WheezyToken.sol");
 
 const web3 = require("web3-utils");
 
