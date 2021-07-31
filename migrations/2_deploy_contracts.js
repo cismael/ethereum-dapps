@@ -1,9 +1,9 @@
 const WheezyToken = artifacts.require("./contracts/WheezyToken.sol");
+const SimpleStorage = artifacts.require("SimpleStorage");
+const ComplexStorage = artifacts.require("ComplexStorage");
 
-const web3 = require("web3-utils");
-
-module.exports = (deployer, network, [owner]) => {
-    return deployer
-        .then(() => deployer.deploy(WheezyToken))
-        .then(() => WheezyToken.deployed())
+module.exports = function (deployer, network, [owner]) {
+    deployer.deploy(WheezyToken);
+    deployer.deploy(SimpleStorage);
+    deployer.deploy(ComplexStorage);
 };
