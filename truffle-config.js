@@ -1,3 +1,5 @@
+const path = require("path");
+
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -25,6 +27,7 @@ const fs = require('fs');
 const mnemonic = fs.readFileSync(".metamask_wallet_secret").toString().trim();
 
 module.exports = {
+  contracts_build_directory: path.join(__dirname, "app/src/contracts"),
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -92,5 +95,15 @@ module.exports = {
       //  evmVersion: "byzantium"
       // }
     }
+  },
+
+  // Truffle DB is currently disabled by default; to enable it, change enabled: false to enabled: true
+  //
+  // Note: if you migrated your contracts prior to enabling this field in your Truffle project and want
+  // those previously migrated contracts available in the .db directory, you will need to run the following:
+  // $ truffle migrate --reset --compile-all
+
+  db: {
+    enabled: false
   }
 };
