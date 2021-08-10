@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
 import "truffle/Assert.sol";
@@ -7,14 +8,13 @@ contract WheezyTokenTest {
 
     WheezyToken wheezyToken;
 
-    constructor() public {
+    constructor() {
         wheezyToken  = new WheezyToken();
     }
 
-    // Testing the adopt() function
     function testTotalSupply() public {
         uint returned = wheezyToken.totalSupply();
-        uint expected = 1000000;
+        uint expected = 1000000000000000000000000;
 
         Assert.equal(returned, expected, "Total Supply should be 1000000.");
     }

@@ -1,17 +1,27 @@
-pragma solidity >=0.4.21 <0.7.0;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4.22 <0.9.0;
 
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/SimpleStorage.sol";
 
 contract TestSimpleStorage {
-    function testItStoresAValue() public {
+
+    function testGetData() public {
         SimpleStorage simpleStorage = SimpleStorage(DeployedAddresses.SimpleStorage());
 
-        simpleStorage.set(89);
+        string memory expected = "My default stored value in the blockchain";
 
-        uint expected = 89;
-
-        Assert.equal(simpleStorage.storedData(), expected, "It should store the value 89.");
+        Assert.equal(simpleStorage.getData(), expected, "It should return : 'My default stored value in the blockchain'");
     }
+
+    function testSetAndGetData() public {
+        SimpleStorage simpleStorage = SimpleStorage(DeployedAddresses.SimpleStorage());
+
+        string memory expected = "New value to store";
+        simpleStorage.setData(expected);
+
+        Assert.equal(simpleStorage.data(), expected, "It should store the value 89.");
+    }
+
 }

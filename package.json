@@ -11,8 +11,8 @@
   "dependencies": {},
   "devDependencies": {
     "@openzeppelin/contracts": "4.2.0",
-    "@truffle/hdwallet-provider": "1.4.2",
-    "web3": "^1.5.0",
-    "web3-utils": "1.4.0"
+    "@truffle/hdwallet-provider": "1.4.3",
+    "web3": "1.5.1",
+    "web3-utils": "1.5.1"
   }
 }
