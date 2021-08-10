@@ -70,3 +70,42 @@ truffle(develop)> token.symbol()
 ```
 
 ## Public Etheureum Blockain Testing (Ropsten testnet)
+
+
+### Caractéristiques du token ERC-20
+
+#### Les fonctions :
+totalSupply() public view returns (uint256 totalSupply)
+
+balanceOf(address _owner) public view returns (uint256 balance)
+
+transfer(address _to, uint256 _value) public returns (bool success)
+
+transferFrom(address _from, address _to, uint256 _value) public returns (bool success)
+
+approve(address _spender, uint256 _value) public returns (bool success)
+
+allowance(address _owner, address _spender) public view returns (uint256 remaining)
+
+
+#### Les événements :
+Transfer(address indexed _from, address indexed _to, uint256 _value)
+
+Approval(address indexed _owner, address indexed _spender, uint256 _value)
+
+
+Tout d’abord nous avons des fonctions qui nous permettent d’obtenir des informations, BalanceOf et totalSupply.
+Respectivement elles nous informent du nombre de tokens détenus par une addresse, et le nombre total de tokens en circulation.
+Puis viennent celles qui vous permettent de réaliser des transactions, transfer et transferFrom.
+Enfin les deux dernières fonctions vont permettre d’autoriser une adresse à retirer des fonds jusqu'au maximum autorisé, et de connaître ce maximum en question.
+Pour les événements, c’est plutôt simple puisque qu'ils vont automatiquement être appelés lors de la réalisation d’un transfert ou d’une autorisation de retrait.
+
+
+#### Dev
+
+function testBurn() public {
+    mytoken.burn(1000);
+    uint balance = mytoken.balanceOf(msg.sender);
+    uint expected = 100000000000000000 - 1000;
+    Assert.equal(balance, expected, "Balance should be reduced.");
+}
