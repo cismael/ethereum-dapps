@@ -21,10 +21,11 @@ const path = require("path");
  */
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const INFURA_API_KEY = "d18a0a6bdafb4c0c893cf20f8e4095cf";
-
 const fs = require('fs');
-const mnemonic = fs.readFileSync(".metamask_wallet_secret").toString().trim();
+
+const INFURA_API_KEY = fs.readFileSync(path.join(__dirname, ".privatekeys/.infura_api_key")).toString().trim();
+
+const mnemonic = fs.readFileSync(path.join(__dirname, ".privatekeys/.metamask_wallet_secret")).toString().trim();
 
 module.exports = {
   contracts_build_directory: path.join(__dirname, "app/src/contracts"),
@@ -59,8 +60,14 @@ module.exports = {
     // from: <address>,        // Account to send txs from (default: accounts[0])
     // websockets: true        // Enable EventEmitter interface for web3 (default: false)
     // },
-    // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
+    //
+    // Useful for private networks
+    // private: {
+    // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
+    // network_id: 2111,   // This network is yours, in the cloud.
+    // production: true    // Treats this network as if it was a public net. (default: false)
+    // },
     ropsten: {
       provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/${INFURA_API_KEY}`),
       network_id: 3,       // Ropsten's id
@@ -68,13 +75,7 @@ module.exports = {
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)
       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-    },
-    // Useful for private networks
-    // private: {
-    // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
-    // network_id: 2111,   // This network is yours, in the cloud.
-    // production: true    // Treats this network as if it was a public net. (default: false)
-    // }
+    }
   },
 
   // Set default mocha options here, use special reporters etc.
