@@ -1,5 +1,3 @@
-const path = require("path");
-
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -20,12 +18,16 @@ const path = require("path");
  *
  */
 
-const HDWalletProvider = require('@truffle/hdwallet-provider');
+const path = require("path");
 const fs = require('fs');
+
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 const INFURA_API_KEY = fs.readFileSync(path.join(__dirname, ".privatekeys/.infura_api_key")).toString().trim();
 
 const mnemonic = fs.readFileSync(path.join(__dirname, ".privatekeys/.metamask_wallet_secret")).toString().trim();
+
+const privateKeys = ['0x' + 'PRIVATE_KEYS'];
 
 module.exports = {
   contracts_build_directory: path.join(__dirname, "app/src/contracts"),
@@ -68,10 +70,134 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // },
-    ropsten: {
+
+    // ETH NETWORKS ****************************************************************************************************************
+    eth: {
+      provider: () => new HDWalletProvider(privateKeys, `https://mainnet.infura.io/v3/${INFURA_API_KEY}`),
+      network_id: 1,       // ETH Mainnet's id
+      gas: 5500000,        // ETH Mainnet has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    eth_ropsten_testnet: {
       provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/${INFURA_API_KEY}`),
       network_id: 3,       // Ropsten's id
       gas: 5500000,        // Ropsten has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    eth_rinkeby_testnet: {
+      provider: () => new HDWalletProvider(privateKeys, `https://rinkeby.infura.io/v3/${INFURA_API_KEY}`),
+      network_id: 4,       // Rinkeby's id
+      gas: 5500000,        // Goerli has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    eth_goerli_testnet: {
+      provider: () => new HDWalletProvider(privateKeys, `https://goerli.infura.io/v3/${INFURA_API_KEY}`),
+      network_id: 5,       // Goerli's id
+      gas: 5500000,        // Goerli has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+
+    // BINANCE SMARTCHAIN NETWORKS *************************************************************************************************
+    bsc: {
+      provider: () => new HDWalletProvider(privateKeys, 'https://bsc-dataseed.binance.org/'),
+      network_id: 56,      // BSC Mainnet's id
+      gas: 5500000,        // BSC Mainnet has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    bsc_testnet: {
+      provider: () => new HDWalletProvider(mnemonic, 'https://data-seed-prebsc-1-s1.binance.org:8545/'),
+      network_id: 97,      // BSC Testnet's id
+      gas: 30000000,       // BSC Testnet has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+
+    // POLYGON NETWORKS ************************************************************************************************************
+    polygon: {
+      provider: () => new HDWalletProvider(privateKeys, 'https://rpc-mainnet.matic.network'),
+      network_id: 137,     // Polygon's id
+      gas: 5500000,        // Polygon has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    polygon_mumbai_testnet: {
+      // provider: () => new HDWalletProvider(privateKeys, 'https://rpc-mumbai.matic.today'),
+      provider: () => new HDWalletProvider(privateKeys, 'https://rpc-mumbai.maticvigil.com'),
+      network_id: 80001,      // Polygon Mumbai Testnet's id
+      gas: 5500000,        // Polygon Mumbai Testnet has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+
+    // OPTIMISM NETWORKS ***********************************************************************************************************
+    // To make a deployment on this network we need to :
+    // 1- Install @eth-optimism/solc
+    // 2- Change solc version at the "compilers section" of this file and replace it by the one used by @eth-optimism/solc ('node_modules/@eth-optimism/solc')
+    // 3- Delete the truffle internal migration file (./migrations/1_initial_migration.js)
+    // 4- Eventually change the version of the contract's pragma solidity to use the same version used by @eth-optimism/solc
+    optimism: {
+      provider: () => new HDWalletProvider(privateKeys, 'https://mainnet.optimism.io'),
+      network_id: 10,      // Optimism's id
+      gas: 5500000,        // Optimism has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    optimism_kovan_testnet: {
+      provider: () => new HDWalletProvider(privateKeys, 'https://kovan.optimism.io'),
+      network_id: 69,      // Optimism Kovan Testnet's id
+      gas: 15700000,       // Optimism Kovan Testnet has a lower block limit than mainnet
+      gasPrice: 15000000,  // Optimism Kovan Testnet has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+
+    // KUCOIN COMMUNITY CHAIN NETWORKS *************************************************************************************
+    // Interesting for liquidation and arbitrage
+    kcc: {
+      provider: () => new HDWalletProvider(privateKeys, 'https://rpc-mainnet.kcc.network'),
+      network_id: 321,      // Optimism's id
+      gas: 5500000,        // Optimism has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    kcc_testnet: {
+      provider: () => new HDWalletProvider(privateKeys, 'https://rpc-testnet.kcc.network'),
+      network_id: 322,      // Optimism's id
+      gas: 5500000,        // Optimism has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+
+    // HUOBI HECO NETWORKS *************************************************************************************************
+    heco: {
+      provider: () => new HDWalletProvider(privateKeys, 'https://http-mainnet.hecochain.com'),
+      network_id: 128,      // Optimism's id
+      gas: 5500000,        // Optimism has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    heco_testnet: {
+      provider: () => new HDWalletProvider(privateKeys, 'https://http-testnet.hecochain.com'),
+      network_id: 256,      // Optimism's id
+      gas: 5500000,        // Optimism has a lower block limit than mainnet
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)
       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
