@@ -6,6 +6,18 @@
   "baseBranches": ["develop"],
   "packageRules": [
     {
+      "packageNames": ["web3", "web3-utils"],
+      "groupName": "web3 packages"
+    },
+    {
+      "packageNames": ["react", "react-dom"],
+      "groupName": "react packages"
+    },
+    {
+      "packageNames": ["@drizzle/react-components", "@drizzle/react-plugin", "@drizzle/store"],
+      "groupName": "drizzle packages"
+    },
+    {
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
