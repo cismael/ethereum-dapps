@@ -1,7 +1,6 @@
 # wheezy-erc-20-token
 Trying solidity to create an ERC-20 token.
 
-
 ## Install truffle globally
 
 `npm install truffle -g`
@@ -109,3 +108,8 @@ function testBurn() public {
     uint expected = 100000000000000000 - 1000;
     Assert.equal(balance, expected, "Balance should be reduced.");
 }
+
+
+npx create-react-app my-app
+cd my-app
+npm start
