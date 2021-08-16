@@ -6,10 +6,6 @@
   "baseBranches": ["develop"],
   "packageRules": [
     {
-      "packageNames": ["web3", "web3-utils"],
-      "groupName": "web3 packages"
-    },
-    {
       "packageNames": ["react", "react-dom"],
       "groupName": "react packages"
     },
