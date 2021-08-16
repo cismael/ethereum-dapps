@@ -23,9 +23,9 @@ const fs = require('fs');
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
-const INFURA_API_KEY = fs.readFileSync(path.join(__dirname, ".privatekeys/.infura_api_key")).toString().trim();
+const INFURA_API_KEY = fs.readFileSync(path.join(__dirname, "../.privatekeys/.infura_api_key")).toString().trim();
 
-const mnemonic = fs.readFileSync(path.join(__dirname, ".privatekeys/.metamask_wallet_secret")).toString().trim();
+const mnemonic = fs.readFileSync(path.join(__dirname, "../.privatekeys/.metamask_wallet_secret")).toString().trim();
 
 const privateKeys = ['0x' + 'PRIVATE_KEYS'];
 
