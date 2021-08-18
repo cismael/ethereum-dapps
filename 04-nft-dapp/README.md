@@ -113,15 +113,3 @@ function testBurn() public {
 npx create-react-app my-app
 cd my-app
 npm start
-
-### GAS Optimization
-- Tip 1: Minimize on-chain data
-- Tip 2: Use libraries
-- Tip 3: Use ERC 1167 for cloning contract
-- Tip 4: Turn on the solidity optimizer
-- Tip 5: Use events
-- Tip 6: Write literal values instead of computed one
-- Tip 7: Avoid to copy stuff (arrays…), use storage pointer instead
-- Tip 8: Avoid for-loops over dynamic ranges
-- Tip 9: Optimize the order of variable declarations
-- Tip 10: Use eth-gas-reporter
