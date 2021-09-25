@@ -20,7 +20,7 @@
     "@truffle/hdwallet-provider": "1.4.3",
     "chai": "4.3.4",
     "eth-gas-reporter": "0.2.22",
-    "mocha": "9.0.3",
+    "mocha": "9.1.2",
     "solidity-coverage": "0.7.16",
     "web3": "1.5.2"
   }
