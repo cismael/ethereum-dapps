@@ -1,0 +1,17 @@
+{
+  "name": "04-nft-dapp",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@openzeppelin/contracts": "4.4.0",
+    "@truffle/hdwallet-provider": "1.7.0",
+    "web3": "1.6.1"
+  }
+}

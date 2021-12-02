@@ -7,6 +7,11 @@
 /build
 package-lock.json
 
+# Coverage directory used by tools like istanbul
+coverage
+coverage.json
+coverageEnv
+
 # IDEs and editors
 /.idea
 *.iml
