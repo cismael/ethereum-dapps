@@ -5,7 +5,7 @@ import { Jumbotron } from 'react-bootstrap';
 import {Drizzle, generateStore} from '@drizzle/store';
 import {DrizzleContext} from '@drizzle/react-plugin';
 
-// Import components
+// Import my components
 import MyComponent from "./components/MyComponent";
 
 // Import drizzle options
