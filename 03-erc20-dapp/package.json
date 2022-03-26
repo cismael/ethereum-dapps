@@ -22,6 +22,6 @@
     "eth-gas-reporter": "0.2.24",
     "mocha": "9.2.0",
     "solidity-coverage": "0.7.20",
-    "web3": "1.7.0"
+    "web3": "1.7.1"
   }
 }
