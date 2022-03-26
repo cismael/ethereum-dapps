@@ -2,7 +2,7 @@ import React from 'react';
 
 import {newContextComponents} from "@drizzle/react-components";
 
-// Import components
+// Import display functions
 import getActiveAccountDisplay from "./GetActiveAccountDisplay";
 import createTodo from "./CreateTodo";
 import getTodosList from "./TodoList";
