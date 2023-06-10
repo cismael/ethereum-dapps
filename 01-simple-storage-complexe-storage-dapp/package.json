@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@truffle/hdwallet-provider": "2.0.7",
-    "web3": "1.7.3"
+    "@truffle/hdwallet-provider": "2.1.12",
+    "web3": "1.10.0"
   }
 }
