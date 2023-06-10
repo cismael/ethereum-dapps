@@ -16,7 +16,7 @@
   "devDependencies": {
     "@openzeppelin/contracts": "4.5.0",
     "@openzeppelin/test-environment": "0.1.9",
-    "@openzeppelin/test-helpers": "0.5.15",
+    "@openzeppelin/test-helpers": "0.5.16",
     "@truffle/hdwallet-provider": "2.1.12",
     "chai": "4.3.6",
     "eth-gas-reporter": "0.2.25",
