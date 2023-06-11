@@ -1,8 +1,8 @@
 import Web3 from "web3";
 
 // Import contract artifacts
-import SimpleStorage from './_contracts/SimpleStorage.json';
-import ComplexStorage from "./_contracts/ComplexStorage.json";
+import SimpleStorage from './_solidity_contracts/SimpleStorage.json';
+import ComplexStorage from "./_solidity_contracts/ComplexStorage.json";
 
 const options = {
     contracts: [SimpleStorage, ComplexStorage],

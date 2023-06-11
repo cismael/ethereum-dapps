@@ -69,7 +69,8 @@ truffle(develop)> token.symbol()
 ```
 
 ## Public Etheureum Blockain Testing (Ropsten testnet)
-
+### Ropsten & Rinkeby sont obsolètes
+### Goerli ou Sepolia sont encore maintenues
 
 ### Caractéristiques du token ERC-20
 
