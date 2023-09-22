@@ -20,7 +20,7 @@
     "chai": "4.3.7",
     "eth-gas-reporter": "0.2.25",
     "mocha": "10.2.0",
-    "solidity-coverage": "0.8.2",
+    "solidity-coverage": "0.8.5",
     "web3": "1.10.0"
   }
 }
