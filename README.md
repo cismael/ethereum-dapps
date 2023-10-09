@@ -1,11 +1,13 @@
 # wheezy-erc-20-token
 Trying solidity to create an ERC-20 token.
 
-## Install truffle globally
+## Trullfe
 
-`npm install truffle -g`
+### Install truffle globally
 
-## Init truffle project
+`npm install -g truffle`
+
+### Init truffle project
 
 Create a folder for your project, go inside this folder et execute the command bellow.
 

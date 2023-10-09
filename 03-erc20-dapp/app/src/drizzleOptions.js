@@ -1,7 +1,7 @@
 import Web3 from "web3";
 
 // Import contract artifacts
-import WheezyToken from "./contracts/WheezyToken.json";
+import WheezyToken from "./_contracts/WheezyToken.json";
 
 const options = {
     contracts: [WheezyToken],
