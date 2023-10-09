@@ -5,11 +5,14 @@
   "directories": {
     "test": "test"
   },
+  "scripts": {
+    "ganache": "ganache --wallet.seed myCustomSeed"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@truffle/hdwallet-provider": "2.1.12",
+    "@truffle/hdwallet-provider": "2.1.15",
     "web3": "1.10.0"
   }
 }
